@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import _tarefa from './types/_tarefa';
+import Tarefa from './components/Tarefa';
 
 export default function App() {
   const [texto, setTexto] = useState<string>('')
@@ -22,7 +23,12 @@ export default function App() {
   }
 
   function mostrarTarefas(){
-    return tarefas.map(t => <Text>{t.texto}</Text>)
+    return tarefas.map(t => <Tarefa key={t.id} dados={t} handleDeletePress={excluir}/>)
+  }
+
+  function excluir(id:number){
+    let f = tarefas.filter(t => t.id != id);
+    setTarefas(f);
   }
 
   return (
