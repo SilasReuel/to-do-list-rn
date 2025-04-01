@@ -33,8 +33,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} value={texto} onChangeText={setTexto}/>
+      <TextInput style={styles.input} value={texto} onChangeText={setTexto} placeholder={'Tarefa'} placeholderTextColor={'grey'}/>
+      <Text>{"\n"}</Text>
       <Button title='Adicionar tarefa' onPress={adicionarTarefa}/>
+      <Text style={styles.padrao}>{"\n"}Tarefas{'\n'}</Text>
       {mostrarTarefas()}
     </View>
   );
@@ -43,11 +45,18 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'white'
   },
   input: {
     borderWidth: 2,
+    borderColor: 'white',
+    color: 'white',
+  },
+  padrao:{
+    color:'white',
+    fontSize:30,
   }
 });
