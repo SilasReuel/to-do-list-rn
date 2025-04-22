@@ -8,7 +8,8 @@ type TarefaProp ={
 
 export default function Tarefa(props:TarefaProp){
     return <View>
-                <Text>{props.dados.texto}</Text>
+                <Text style={styles.tarefa}>{props.dados.texto}</Text>
+                <Text>{"\n"}</Text>
                 <Button color={'red'} title="Excluir" onPress={() => props.handleDeletePress(props.dados.id)}/>
             </View>
 }
@@ -16,5 +17,9 @@ export default function Tarefa(props:TarefaProp){
 const styles = StyleSheet.create({
     div:{
         borderWidth: 1
+    },
+    tarefa:{
+        color: 'white',
+        fontSize: 20,
     }
 })
